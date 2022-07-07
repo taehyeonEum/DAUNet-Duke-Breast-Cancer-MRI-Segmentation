@@ -163,7 +163,7 @@ class Decoder(nn.Module):
         x = self.convLast(x)
         return x    
         
-class DAUnet(nn.Module):
+class DAUNet(nn.Module):
     def __init__(self, starting_channel, encChannels, decChannels, growth_rate):
         super().__init__()        
         self.encoder = Encoder(starting_channel, encChannels, growth_rate)

@@ -15,7 +15,7 @@ import required_classes.config as cf
 import required_classes.transform as duke_tf
 import required_classes.random_seed as rs
 import required_classes.dataset as ds
-from models.DAUnet import DAUnet
+from models.DAUNet import DAUNet
 
 def visualize_2d(device, model_name_):
     testset = ds.DukeDataset('test',transform = duke_tf.transform_js('test',cf.RESOLUTION))

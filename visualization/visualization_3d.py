@@ -17,7 +17,7 @@ import required_classes.config as cf
 import required_classes.transform as duke_tf
 import required_classes.random_seed as rs
 import required_classes.dataset as ds
-from models.DAUnet import DAUnet
+from models.DAUNet import DAUNet
 
 def visualize_3d(device, model_name_):
 

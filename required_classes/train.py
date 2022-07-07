@@ -19,7 +19,7 @@ import required_classes.transform as duke_tf
 import required_classes.random_seed as rs
 import required_classes.dataset as ds
 from required_classes.metrics.total_score import total_score
-from models.DAUnet import DAUnet
+from models.DAUNet import DAUNet
 from required_classes.metrics.dsc_score import dice_score
 from required_classes.loss_functions.customLoss_dice_bce import customLoss
 from required_classes.loss_functions.customLoss_dice_bce3 import customLoss as customLoss3
@@ -45,7 +45,7 @@ class Train_DBC:
         testloader = DataLoader(testset, batch_size = cf.BATCH_SIZE,
                                                 shuffle=False, num_workers=0, pin_memory=True, drop_last=True)
 
-        model = DAUnet(cf.STARTING_CHANNEL, cf.ENCODING_CHANNELS, cf.DECODING_CHANNELS, cf.GROWTH_RATE).to(n_args['device'])
+        model = DAUNet(cf.STARTING_CHANNEL, cf.ENCODING_CHANNELS, cf.DECODING_CHANNELS, cf.GROWTH_RATE).to(n_args['device'])
         creterion = customLoss3_exp
         optimizer = optim.AdamW(model.parameters(), lr = 0)
         lr_sche = optim.lr_scheduler.OneCycleLR(optimizer, max_lr = cf.MAX_LR, epochs=cf.NUM_EPOCHS, steps_per_epoch=len(trainloader))
