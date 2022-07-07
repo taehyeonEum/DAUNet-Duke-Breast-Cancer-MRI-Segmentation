@@ -63,6 +63,19 @@ class Train_DBC:
         str_time = "%02d_%02d_%02d_%02d" % (now.tm_year, now.tm_mon, now.tm_mday, now.tm_hour)
         log_path = os.path.join(cf.TOTAL_RESULT_PATH, model_name + '.txt')
 
+        keys = ['Start Time', 'Model_name', 'Optimizer', 'LR_scheduler', 'LOSS',
+                'Growth Rate', 'Starting Channel', 'Encoding Channels', 'Decoding Channels',
+                'Random seed', 'Resolution', 'Batch_size', 'Num_Epochs', 'Max_LR', 'Smooth',
+                'POS_weight', 'BCE_weight', 'FP_weight', 'Dice_weight',
+            ]
+        values = [str_time, cf.MODEL_NAME, cf.OPTIMIZER, cf.LR_SCHEDULER, cf.LOSS, 
+                    str(cf.GROWTH_RATE), str(cf.STARTING_CHANNEL), '/'.join(map(str, cf.ENCODING_CHANNELS)), '/'.join(map(str, cf.DECODING_CHANNELS)), 
+                    str(cf.RANDOM_SEED), str(cf.RESOLUTION), str(cf.BATCH_SIZE), str(cf.NUM_EPOCHS), str(cf.MAX_LR), str(cf.SMOOTH), 
+                    str(cf.POS_WEIGHT), str(cf.BCE_WEIGHT), str(cf.BCE2_WEIGHT), str(cf.DSC_WEIGHT),
+            ]
+
+        for i in range(len(keys)):
+                print(keys[i], ' ', values[i])
 
         if n_args['log_param']:
 
@@ -79,21 +92,9 @@ class Train_DBC:
             model_path = cf.MODEL_PATH + '/' + model_name
             os.mkdir(model_path)
 
-            keys = ['Start Time', 'Model_name', 'Optimizer', 'LR_scheduler', 'LOSS',
-                    'Growth Rate', 'Starting Channel', 'Encoding Channels', 'Decoding Channels',
-                    'Random seed', 'Resolution', 'Batch_size', 'Num_Epochs', 'Max_LR', 'Smooth',
-                    'POS_weight', 'BCE_weight', 'FP_weight', 'Dice_weight',
-                ]
-            values = [str_time, cf.MODEL_NAME, cf.OPTIMIZER, cf.LR_SCHEDULER, cf.LOSS, 
-                        str(cf.GROWTH_RATE), str(cf.STARTING_CHANNEL), '/'.join(map(str, cf.ENCODING_CHANNELS)), '/'.join(map(str, cf.DECODING_CHANNELS)), 
-                        str(cf.RANDOM_SEED), str(cf.RESOLUTION), str(cf.BATCH_SIZE), str(cf.NUM_EPOCHS), str(cf.MAX_LR), str(cf.SMOOTH), 
-                        str(cf.POS_WEIGHT), str(cf.BCE_WEIGHT), str(cf.BCE2_WEIGHT), str(cf.DSC_WEIGHT),
-                ]
             f = open(log_path, 'a')
             for i in range(len(keys)):
                 f.write(keys[i] + ' ' + values[i] + '\n')
-                print(keys[i], ' ', values[i])
-
             f.close()
 
         st = os.stat('./output')
