@@ -63,13 +63,13 @@ VISUALIAZATION_PATH = os.path.join(OUTPUT_PATH, 'visualization')
 
 # not necessary to change but for record!
 # if you want to change setting you have to change in train.py
-MODEL_NAME = 'DenseUNet11'
+MODEL_NAME = 'DAUNet'
 OPTIMIZER = 'AdamW'
 LR_SCHEDULER = 'OneCyclicLR'
-LOSS = 'Dice_BCE_FP_exp'
+LOSS = 'Dice_BCE'
 
-GROWTH_RATE = 12
-STARTING_CHANNEL = 8
+GROWTH_RATE = 15
+STARTING_CHANNEL = 10
 ENCODING_CHANNELS = [2, 4, 8, 16]
 de_channels = []
 for i, d in enumerate(ENCODING_CHANNELS):
@@ -89,5 +89,5 @@ SMOOTH = 1e-5
 
 POS_WEIGHT = 7
 BCE_WEIGHT = 2
-BCE2_WEIGHT = 1
+BCE2_WEIGHT = 0
 DSC_WEIGHT = 10 

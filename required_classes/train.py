@@ -46,7 +46,7 @@ class Train_DBC:
                                                 shuffle=False, num_workers=0, pin_memory=True, drop_last=True)
 
         model = DAUNet(cf.STARTING_CHANNEL, cf.ENCODING_CHANNELS, cf.DECODING_CHANNELS, cf.GROWTH_RATE).to(n_args['device'])
-        creterion = customLoss3_exp
+        creterion = customLoss3
         optimizer = optim.AdamW(model.parameters(), lr = 0)
         lr_sche = optim.lr_scheduler.OneCycleLR(optimizer, max_lr = cf.MAX_LR, epochs=cf.NUM_EPOCHS, steps_per_epoch=len(trainloader))
 
