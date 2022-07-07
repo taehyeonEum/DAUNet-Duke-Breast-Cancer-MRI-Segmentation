@@ -21,12 +21,12 @@ if you want to visualize both :
 
     python main.py --device='cuda:0' --log_param=True --visualization=both
 
---device: select device // --log_param: choose to save results or not // --visualization: visualization methods
+--device: select device // --log_param: choose to save results or not // --visualization: visualization methods`<br>`
 
 
 If you want to **look for default setting**, you can fine in **/required_classes/config.py**
 
-You can change model's Configuration in it
+You can change model's Configuration in it`<br>`
 
 
 Additionaly, you can find *experiment log* in
